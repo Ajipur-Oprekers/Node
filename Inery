@@ -1,0 +1,95 @@
+## 1. Update Tools Yang di Perlukan
+
+<p align="center">
+  <img height="auto" height="auto" src="https://user-images.githubusercontent.com/38981255/184288420-51676f99-2069-417c-aa9e-cdf28a24e9dd.PNG">
+</p>
+
+```
+sudo apt-get update && sudo apt install git && sudo apt install screen
+```
+
+<p align="center">
+  <img height="auto" height="auto" src="https://user-images.githubusercontent.com/38981255/184288416-3eab98fb-2544-4be8-bae2-f6c99210750d.PNG">
+</p>
+
+```
+sudo apt-get install -y make bzip2 automake libbz2-dev libssl-dev doxygen graphviz libgmp3-dev \
+autotools-dev libicu-dev python2.7 python2.7-dev python3 python3-dev \
+autoconf libtool curl zlib1g-dev sudo ruby libusb-1.0-0-dev \
+libcurl4-gnutls-dev pkg-config patch llvm-7-dev clang-7 vim-common jq libncurses5
+```
+## 2. On Port (optional)
+```
+ufw allow 22 && ufw allow 8888 && ufw allow 9010 && ufw enable -y
+```
+## 3. Mulai Node
+
+<p align="center">
+  <img height="auto" height="auto" src="https://user-images.githubusercontent.com/38981255/184288675-1c551b8f-f882-45d9-9058-ae95c7888963.PNG">
+</p>
+
+```
+git clone https://github.com/inery-blockchain/inery-node
+```
+## 4. Explorer BIN
+```
+cd inery-node
+```
+## 5. Beri Izin File
+
+<p align="center">
+  <img height="auto" height="auto" src="https://user-images.githubusercontent.com/38981255/184288914-bcea524f-d32e-4460-a971-913af8c359a9.PNG">
+</p>
+
+```
+cd inery.setup
+```
+```
+chmod +x ine.py
+```
+```
+./ine.py --export
+```
+```
+cd; source .bashrc; cd -
+```
+## 6. Become a Master Node
+untuk mengonfigurasi node dengan informasi Akun Anda, Tolong Perhatikan dan Teliti
+
+<p align="center">
+  <img height="auto" height="auto" src="https://user-images.githubusercontent.com/38981255/184290164-85371bac-f97a-4f8d-8cf8-63e5b5297f83.PNG">
+</p>
+
+## 7. Buka Config Kalian Lalu Edit, Perintahnya : 
+```
+cd
+cd inery-node/inery.setup
+```
+```
+cd tools
+```
+```
+nano config.json
+```
+**Penting:** Untuk Pengguna VPS Azure IP bisa di isi Dengan IP Private Kalian Cari Jalankan Perintah `hostname - i`
+
+Pastikan Data Sama Dengan [Akun Testnet](https://github.com/bangpateng/inery/blob/main/cara-register-testnet.md "Akun Testnet") Yang ada di Dasboard Akun Yang Sudah Kalian Buat
+
+Simpan (ctrl+x), Ketik "Y" dan keluar (enter)
+
+## 8. Mulai Protocol Blockchain
+<p align="center">
+  <img height="auto" height="auto" src="https://user-images.githubusercontent.com/38981255/184290968-0dd5773f-6c08-4a5d-a5a2-11c4db67678b.PNG">
+</p>
+
+```
+cd
+cd inery-node/inery.setup
+```
+```
+screen -R master
+```
+```
+./ine.py --master
+```
+**Ketik CTRL + A + D** Untuk jalan di Background dan Untuk Kembali lagi Ke Screen Gunakan Perintah `screen -Rd master`
